@@ -1,48 +1,32 @@
+//urok 4
+// Punkt 1.
 
-let jojo = "Это Jojo";
-document.getElementById("one").innerHTML = jojo;
-//document.querySelector('two').innerHTML = 'Bla';
+// let a = Number(prompt("Введите число а"));
+// let b = Number(prompt("Введите число б"));
+// let c = a + b;
 
-let inputIn = document.querySelector('.text1');
-let btn = document.querySelector('.btn');
-let div = document.querySelector('.out');
-btn.onclick = function () {
-    console.log('da');
-    console.log(inputIn.value);
-    let e = inputIn.value;
-    console.log(e); 
-    div.innerHTML = e;
-}
-let e = inputIn.value;
-console.log(e);
+// if (c > 15) {
+//     console.log('ДА');
+//     console.log(c);
+// } 
 
-// let myBirthDay = prompt("Сколько тебе лет?");
-// console.log(myBirthDay);
-
-// if (myBirthDay == 22) {
-//     alert("Да ты молод");
-// } else if (myBirthDay == 23) {
-//     alert('ты крут');
-// } else if (myBirthDay == 33) {
-//     alert('Ух');
-// }
-// else if (myBirthDay == " ") {
-//     alert('Пробел?');
-// }
-// else if (typeof myBirthDay == "string") {
-//     alert('Введи число');
-// }
+// else if (c < 15) {
+//     console.log('НЕТ');
+//     console.log(c);
+// } 
 // else {
-//     alert ("ты ничего не ввел");
+//     console.log('Ты что-то не то ввёл...');
 // }
 
-let numberPr = prompt("Больше или меньше 100?");
 
-let number = document.querySelector('.number');
+//Punkt 2
 
-if (numberPr >= 100) {
-    number.innerHTML = numberPr;
-}
+let a = 123;
+let b = "123";
+
+if (a === b) {
+    console.log("Типы данных у значений одинаковы, true\nу первого", typeof(a), "\nу второго", typeof(b))
+} 
 else {
-    console.log(numberPr);
+  console.log("Типы данных у значений разные, false\nу первого", typeof(a), "\nу второго", typeof(b))  
 }
