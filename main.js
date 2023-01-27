@@ -1,32 +1,21 @@
-//urok 4
+//urok 5
 // Punkt 1.
 
-// let a = Number(prompt("Введите число а"));
-// let b = Number(prompt("Введите число б"));
-// let c = a + b;
-
-// if (c > 15) {
-//     console.log('ДА');
-//     console.log(c);
-// } 
-
-// else if (c < 15) {
-//     console.log('НЕТ');
-//     console.log(c);
-// } 
-// else {
-//     console.log('Ты что-то не то ввёл...');
+// for (let a = 1; a <= 50; a++) {
+//     console.log(a);
 // }
 
+// Punkt 2.
 
-//Punkt 2
+// for (let a = 50; a >= 25; a--) {
+//     console.log(a);
+// }
 
-let a = 123;
-let b = "123";
+// Punkt 3.
 
-if (a === b) {
-    console.log("Типы данных у значений одинаковы, true\nу первого", typeof(a), "\nу второго", typeof(b))
-} 
-else {
-  console.log("Типы данных у значений разные, false\nу первого", typeof(a), "\nу второго", typeof(b))  
+for (let a = 2500; a <= 3000; a++) {
+
+    if (a % 2 == 1) {
+    console.log(a);
+    }
 }
