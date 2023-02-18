@@ -1,69 +1,53 @@
-//urok 6
-// Punkt 1
+let a = "Значение из переменной А";
+let clcbtn = document.querySelector(".func");
 
-// let a = 123;
-// let b = prompt("Введи второе значение для сравнения")
-
-// let result = a === b;
-// switch (result) {
-//     case true:
-//         console.log("yes");
-//         break;
-//     case false:
-//         console.log("no");
-//         break;
-//     default:
-//         console.log("не сработало");
-//         break;
-// }
+function one() {
+    let div = document.querySelector('.func_out');
+    div.innerHTML = a;
+}
+clcbtn.onclick = one;
 
 
-//Punkt 2
+//calc
 
-// let a = prompt("Напиши от 1 до 12");
+let inputCalc = document.querySelector('.calcinp');
+let btnPlus = document.querySelector('.calcplus');
+let btnMin = document.querySelector('.calcmin');
+let btnDel = document.querySelector('.calcdel');
+let btnUmn = document.querySelector('.calcumn');
 
-// switch (a) {
-//     case "1":
-//     case "2":
-//     case "3":
-//         console.log("Зима");
-//         break;
+btnPlus.onclick = function () {
+    
+    let inp = Number(inputCalc.value);
+    let outp = inp + 3;
 
-//     case "4":
-//     case "5":
-//     case "6":
-//         console.log("Весна");
-//         break;
+    document.getElementById('outp').value = outp;
+    console.log(outp);
+}
 
-//     case "7":
-//     case "8":
-//     case "9":
-//         console.log("Лето");
-//         break;
+btnMin.onclick = function () {
+    
+    let inp = Number(inputCalc.value);
+    let outp = inp - 5;
 
-//     case "10":
-//     case "11":
-//     case "12":
-//         console.log("Осень");
-//         break;
-//     default:
-//         console.log("Напиши от 1 до 12.. Не меньше и не больше!");
-//         break;
-// }
+    document.getElementById('outp').value = outp;
+    console.log(outp);
+}
 
+btnDel.onclick = function () {
+    
+    let inp = Number(inputCalc.value);
+    let outp = inp / 10;
 
-//Punkt 3
+    document.getElementById('outp').value = outp;
+    console.log(outp);
+}
 
-let a = 123;
-let b = "string";
-let c = null;
+btnUmn.onclick = function () {
+    
+    let inp = Number(inputCalc.value);
+    let outp = inp * 22;
 
-console.log(a ?? b);
-console.log(a ?? c);
-console.log(b ?? c);
-
-console.log('')
-
-console.log(c ?? b);
-console.log(c ?? a);
-console.log(b ?? a);
+    document.getElementById('outp').value = outp;
+    console.log(outp);
+}
