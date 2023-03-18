@@ -1,30 +1,54 @@
 let button1 = document.querySelector('.button1');
 let button2 = document.querySelector('.button2');
 let button3 = document.querySelector('.button3');
+let button4 = document.querySelector('.button4');
+
+let arr = [1,2,3,4,5,6,7,8,9,10,11];
+
+let arrmatrix = [
+    ['один', 'два'],
+    ['три', 'четыре'],
+    ['пять', 'шесть']
+];
 
 button1.onclick = function () {
-    let div_btn1 = document.querySelector(".div_button1");
-    div_btn1.style.height = "200px";
-    div_btn1.style.width = "200px";
+ let outp = arr[5];
+ document.getElementById('outp').innerHTML = outp;
 }
 
 button2.onclick = function () {
-    let div_btn2 = document.querySelector(".div_button1");
-    div_btn2.style.fontFamily = "sans-serif";
-    div_btn2.style.color = "red";
-    div_btn2.style.fontSize = "8px";
+    let arr2 =[];
+    for (var i = 0; i < arr.length; i++)
+        {
+            if ((arr[i] % 2) === 0)
+                { 
+                    arr2.push(arr[i]);
+                    document.getElementById('outp').innerHTML = arr2;     
+                }
+        }
 }
 
 button3.onclick = function () {
-    let div_btn3 = document.querySelector(".div_button1");
-    let num = Math.floor(Math.random() * 3);
-    console.log(num);
-    switch(num) {
-    case(0):
-        div_btn3.style.removeProperty("fontFamily");
-    case(1):
-        div_btn3.style.removeProperty("color");
-    case(2):
-        div_btn3.style.removeProperty("font-Size");
+    let arr2 =[];
+    for (var i = 0; i < arr.length; i++)
+        {
+            if ((arr[i] % 2) !== 0)
+                { 
+                    arr2.push(arr[i]);
+                    document.getElementById('outp').innerHTML = arr2;     
+                }
+        }
+}
+
+button4.onclick = function () {
+    let arr3 = arrmatrix.reverse();
+    let outp = ' ';
+    for (let i= 0; i < arr3.length; i++)
+    {
+        for (let j=0; j < arr3[i].length; j++) {
+            outp = outp + arr3[i][j]+ ' ';
+        }
+        outp = outp + '<br>';
     }
+    document.getElementById('outp').innerHTML = outp;   
 }
