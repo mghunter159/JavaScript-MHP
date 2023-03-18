@@ -1,54 +1,24 @@
-let button1 = document.querySelector('.button1');
-let button2 = document.querySelector('.button2');
-let button3 = document.querySelector('.button3');
-let button4 = document.querySelector('.button4');
+fetch('https://api.openweathermap.org/data/2.5/weather?lat=58.0174&lon=56.2855&appid=25f89658c39ca5934efd0ac925fed826&units=metric')
+.then(function(resp){return resp.json()})
+.then(function(data) {
+    console.log(data);
+    document.querySelector('.city-name').innerHTML = data.name;
+    document.querySelector('.temperature').textContent = Math.round((data.main.temp)) + '°';
+    document.querySelector('.weather').innerHTML = data.weather[0]['description'];
+    document.querySelector('.wind').innerHTML = data.wind.speed;
+    document.querySelector('.humidity').innerHTML = data.main.humidity;
+    document.querySelector('.country').innerHTML = data.sys.country;
+    var sunrise = new Date(data.sys.sunrise * 1000);
+        var hour = sunrise.getHours();
+        var min = sunrise.getMinutes();
+        var sec = sunrise.getSeconds();
+            var sunrise_time = hour + ':' + min + ':' + sec;
+    document.querySelector('.sunrise').innerHTML = sunrise_time;
+    var sunset = new Date(data.sys.sunset * 1000);
+        var hour = sunset.getHours();
+        var min = sunset.getMinutes();
+        var sec = sunset.getSeconds();
+            var sunset_time = hour + ':' + min + ':' + sec;
+    document.querySelector('.sunset').innerHTML = sunset_time;
+})
 
-let arr = [1,2,3,4,5,6,7,8,9,10,11];
-
-let arrmatrix = [
-    ['один', 'два'],
-    ['три', 'четыре'],
-    ['пять', 'шесть']
-];
-
-button1.onclick = function () {
- let outp = arr[5];
- document.getElementById('outp').innerHTML = outp;
-}
-
-button2.onclick = function () {
-    let arr2 =[];
-    for (var i = 0; i < arr.length; i++)
-        {
-            if ((arr[i] % 2) === 0)
-                { 
-                    arr2.push(arr[i]);
-                    document.getElementById('outp').innerHTML = arr2;     
-                }
-        }
-}
-
-button3.onclick = function () {
-    let arr2 =[];
-    for (var i = 0; i < arr.length; i++)
-        {
-            if ((arr[i] % 2) !== 0)
-                { 
-                    arr2.push(arr[i]);
-                    document.getElementById('outp').innerHTML = arr2;     
-                }
-        }
-}
-
-button4.onclick = function () {
-    let arr3 = arrmatrix.reverse();
-    let outp = ' ';
-    for (let i= 0; i < arr3.length; i++)
-    {
-        for (let j=0; j < arr3[i].length; j++) {
-            outp = outp + arr3[i][j]+ ' ';
-        }
-        outp = outp + '<br>';
-    }
-    document.getElementById('outp').innerHTML = outp;   
-}
