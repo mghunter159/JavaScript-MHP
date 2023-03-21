@@ -1,0 +1,13 @@
+.dive {
+    width: 200px;
+    height: 50px;
+    background-color: brown;
+    color: white;
+    text-align: center;
+    display: table-cell;
+    vertical-align: middle;
+}
+
+.image {
+    height: 200px;
+}

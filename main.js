@@ -1,49 +1,33 @@
 // 1
-let a = new Set();
-a.add('e')
-a.add('r')
-a.add('i')
-a.add('k')
-a.add('t')
-a.add('h')
-a.add('e')
-a.add('b')
-a.add('e')
-a.add('s')
-a.add('t')
-console.log(a);
+home1.onclick = function() {
+    let home1 = document.getElementById("home1");
 
-//2
-let butadd = document.querySelector('.butadd');
-let butcheck = document.querySelector('.butcheck');
-let butmas = document.querySelector('.butmas');
+    let height = home1.scrollHeight;
+    let width = home1.scrollWidth;
 
-butadd.onclick = function () {
-    let inpadd = document.getElementById('inpadd').value;
-    a.add(inpadd)
-    console.log(a);
-   }
-   
+    console.log(height);
 
-//3
-butcheck.onclick = function () {
-    let inpcheck = document.getElementById('inpcheck').value;
-    if (a.has(inpcheck)) {
-        document.getElementById('outp').innerHTML = true;
-    } else {
-        document.getElementById('outp').innerHTML = false;
+    home1.style.height = height + 15 + 'px';
+    home1.style.width = width + 15 + 'px';
+}
+
+home2.ondblclick = function() {
+    console.log(document.getElementById('home2'));
+}
+
+imgcat.onclick = function() {
+    document.getElementById("imgcat").src = "https://sun9-46.userapi.com/impg/yCJKkiHelDCewCvxMwXmZePP0mvA83TJiJ6TVg/JNn45v4mHEw.jpg?size=1440x2160&quality=95&sign=0a2604b420afdec7bb0f936839fbbf9a&type=album";
+}
+
+document.querySelector(".inp").onkeypress = function(event) {
+
+    if( !isNaN(event.key) ){
+    document.querySelector(".inpcode").value = false;
+    console.log(event.key);
     }
-   }
-
-//4
-let arr = [1,6,3,7,2,8,3,9,4,12,11];
-let arr2 = [];
-
-butmas.onclick = function () {
-    for (let i of arr)
-    {
-        if (i > 5) {arr2.push(i);}
+    else {
+        document.querySelector(".inpcode").value = event.charCode;
+        console.log(event.charCode);
     }
-    console.log(arr2);
-    document.getElementById('outpmas').innerHTML = arr2;
+    
 }
