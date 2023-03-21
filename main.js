@@ -1,24 +1,49 @@
-fetch('https://api.openweathermap.org/data/2.5/weather?lat=58.0174&lon=56.2855&appid=25f89658c39ca5934efd0ac925fed826&units=metric')
-.then(function(resp){return resp.json()})
-.then(function(data) {
-    console.log(data);
-    document.querySelector('.city-name').innerHTML = data.name;
-    document.querySelector('.temperature').textContent = Math.round((data.main.temp)) + '°';
-    document.querySelector('.weather').innerHTML = data.weather[0]['description'];
-    document.querySelector('.wind').innerHTML = data.wind.speed;
-    document.querySelector('.humidity').innerHTML = data.main.humidity;
-    document.querySelector('.country').innerHTML = data.sys.country;
-    var sunrise = new Date(data.sys.sunrise * 1000);
-        var hour = sunrise.getHours();
-        var min = sunrise.getMinutes();
-        var sec = sunrise.getSeconds();
-            var sunrise_time = hour + ':' + min + ':' + sec;
-    document.querySelector('.sunrise').innerHTML = sunrise_time;
-    var sunset = new Date(data.sys.sunset * 1000);
-        var hour = sunset.getHours();
-        var min = sunset.getMinutes();
-        var sec = sunset.getSeconds();
-            var sunset_time = hour + ':' + min + ':' + sec;
-    document.querySelector('.sunset').innerHTML = sunset_time;
-})
+// 1
+let a = new Set();
+a.add('e')
+a.add('r')
+a.add('i')
+a.add('k')
+a.add('t')
+a.add('h')
+a.add('e')
+a.add('b')
+a.add('e')
+a.add('s')
+a.add('t')
+console.log(a);
 
+//2
+let butadd = document.querySelector('.butadd');
+let butcheck = document.querySelector('.butcheck');
+let butmas = document.querySelector('.butmas');
+
+butadd.onclick = function () {
+    let inpadd = document.getElementById('inpadd').value;
+    a.add(inpadd)
+    console.log(a);
+   }
+   
+
+//3
+butcheck.onclick = function () {
+    let inpcheck = document.getElementById('inpcheck').value;
+    if (a.has(inpcheck)) {
+        document.getElementById('outp').innerHTML = true;
+    } else {
+        document.getElementById('outp').innerHTML = false;
+    }
+   }
+
+//4
+let arr = [1,6,3,7,2,8,3,9,4,12,11];
+let arr2 = [];
+
+butmas.onclick = function () {
+    for (let i of arr)
+    {
+        if (i > 5) {arr2.push(i);}
+    }
+    console.log(arr2);
+    document.getElementById('outpmas').innerHTML = arr2;
+}
