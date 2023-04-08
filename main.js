@@ -1,33 +1,32 @@
-// 1
-home1.onclick = function() {
-    let home1 = document.getElementById("home1");
+//localStorage.setItem('data', 5);
+//console.log(localStorage.getItem('data'));
 
-    let height = home1.scrollHeight;
-    let width = home1.scrollWidth;
+let a = [1,2,3];
+console.log(typeof a);
+localStorage.setItem('data', JSON.stringify(a));
 
-    console.log(height);
+let b = localStorage.getItem('data');
+b = JSON.parse(b);
+console.log(b[1]);
 
-    home1.style.height = height + 15 + 'px';
-    home1.style.width = width + 15 + 'px';
-}
+console.log(typeof b);
+// для очистки - clear, для удаления - remove
 
-home2.ondblclick = function() {
-    console.log(document.getElementById('home2'));
-}
 
-imgcat.onclick = function() {
-    document.getElementById("imgcat").src = "https://sun9-46.userapi.com/impg/yCJKkiHelDCewCvxMwXmZePP0mvA83TJiJ6TVg/JNn45v4mHEw.jpg?size=1440x2160&quality=95&sign=0a2604b420afdec7bb0f936839fbbf9a&type=album";
-}
+let xhttp = new XMLHttpRequest()
 
-document.querySelector(".inp").onkeypress = function(event) {
+//создали новый объект
 
-    if( !isNaN(event.key) ){
-    document.querySelector(".inpcode").value = false;
-    console.log(event.key);
+xhttp.onreadystatechange = function() {
+
+    //когда будет меняться состояние объекта мы будет вызывать функцию
+    if(this.readyState == 4 && this.status == 200) {
+        myfunc(this.responseText);
     }
-    else {
-        document.querySelector(".inpcode").value = event.charCode;
-        console.log(event.charCode);
-    }
-    
+}
+
+xhttp.open('GET', 'https://equeim.ru/', true)
+xhttp.send();
+function myfunc(data) {
+    console.log(data);
 }
