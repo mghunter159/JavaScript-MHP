@@ -1,13 +1,13 @@
-.dive {
-    width: 200px;
-    height: 50px;
-    background-color: brown;
-    color: white;
-    text-align: center;
-    display: table-cell;
-    vertical-align: middle;
+.todoList {
+    margin-top: 30px;
 }
-
-.image {
-    height: 200px;
+.delete {
+    margin-left: 10px;
+}
+.done {
+    text-decoration: line-through;
+	text-decoration-color: red;
+}
+.ml {
+    margin-left: 10px;
 }

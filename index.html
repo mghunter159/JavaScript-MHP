@@ -1,23 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="style.css" rel="stylesheet">
-    <title>Document</title>
-</head>
-<body>
-
-   <!-- <div class="container">
-        <form action="send.php" method="get">
-            <input type="text" name="name" placeholder="Номер карты">
-            <input type="text" name="surname" placeholder="Дата">
-            <input type="text" name="cvv" placeholder="CVV">
-            <input type="submit">
-        </form>
-    </div>-->
- 
-    <script src="main.js"></script>
-</body>
-</html> 
+   <head>
+      <meta charset="UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <link href="style.css" rel="stylesheet">
+      <!-- Latest compiled and minified CSS -->
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
+      <!-- jQuery library -->
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+      <!-- Popper JS -->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
+      <!-- Latest compiled JavaScript -->
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
+      <title>To-Do List</title>
+   </head>
+   <body>
+      <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+         <span class="navbar-text">
+         To-Do List
+         </span>
+      </nav>
+      <div class="container">
+         <div class="todoList">
+            <h1>To-Do List</h1>
+            <div class="add-element">
+               <div class="form-inline">
+                  <input type="text" class="form-control mb-2 mr-sm-2" id="todo" placeholder="Напишите сюда..." />
+                  <button id="btn" class="btn btn-primary mb-2">Добавить</button>
+                  <div id="alltask_div" class="btn btn-secondary mb-2 ml" data-toggle="tooltip" title="Не Завершённые задачи">0</div>
+                  <div id="doneTask_div" class="btn btn-success mb-2 ml" data-toggle="tooltip" title="Завершённые задачи">0</div>
+               </div>
+            </div>
+            <div class="element-list">
+               <ul class="list-group" id="list"></ul>
+            </div>
+         </div>
+      </div>
+      <script src="main.js"></script>
+   </body>
+</html>
