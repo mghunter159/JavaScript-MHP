@@ -1,82 +1,98 @@
-/*//localStorage.setItem('data', 5);
-//console.log(localStorage.getItem('data'));
+let input = document.querySelector("#todo");
+let btn = document.querySelector("#btn");
+let list = document.querySelector("#list");
 
-let a = [1,2,3];
-console.log(typeof a);
-localStorage.setItem('data', JSON.stringify(a));
+let alltask_div1 = 0;
+let doneTask_div1 = 0;
 
-let b = localStorage.getItem('data');
-b = JSON.parse(b);
-console.log(b[1]);
+let savedTasks = JSON.parse(localStorage.getItem("tasks")) || [];
+let doneTasks = JSON.parse(localStorage.getItem("done")) || [];
 
-console.log(typeof b);
-// для очистки - clear, для удаления - remove
+savedTasks.forEach(addUIItem);
+doneTasks.forEach(doneUIItem);
+
+btn.addEventListener("click", () => {
+   let txt = input.value;
+   if (txt === "") {
+      alert("Ты не ввел ничего!");
+   } else {
+      savedTasks.push(txt);
+      localStorage.setItem("tasks", JSON.stringify(savedTasks));
+      input.value = "";
+      addUIItem(txt);
+   }
+});
+
+list.addEventListener("click", (e) => {
+   if (e.target.tagName == "LI") {
+      e.target.classList.toggle("checked");
+   }
+});
+
+function addUIItem(txt) {
+   let li = document.createElement("li");
+   li.innerHTML = txt;
+   li.classList.add("list-group-item");
+   list.insertBefore(li, list.childNodes[0]);
 
 
-let xhttp = new XMLHttpRequest()
+   alltask_div1 = alltask_div1 + 1;
+   document.getElementById("alltask_div").innerHTML = alltask_div1;
 
-//создали новый объект
+   let delBtn = document.createElement("button");
+   delBtn.textContent = "x";
+   delBtn.classList.add("btn", "btn-danger", "ml");
 
-xhttp.onreadystatechange = function() {
+   li.appendChild(delBtn);
+   delBtn.addEventListener("click", (e) => {
+      li.parentNode.removeChild(li);
+      savedTasks = savedTasks.filter((e) => e !== txt);
+      localStorage.setItem("tasks", JSON.stringify(savedTasks));
 
-    //когда будет меняться состояние объекта мы будет вызывать функцию
-    if(this.readyState == 4 && this.status == 200) {
-        myfunc(this.responseText);
-    }
+      alltask_div1 = alltask_div1 - 1;
+      document.getElementById("alltask_div").innerHTML = alltask_div1;
+   });
+
+   let doneBtn = document.createElement("button");
+   doneBtn.textContent = "Ok";
+   doneBtn.classList.add("btn", "btn-success", "ml");
+
+   li.appendChild(doneBtn);
+   doneBtn.addEventListener("click", (e) => {
+      li.parentNode.removeChild(li);
+      savedTasks = savedTasks.filter((e) => e !== txt);
+      localStorage.setItem("tasks", JSON.stringify(savedTasks));
+      doneTasks.push(txt);
+      localStorage.setItem("done", JSON.stringify(doneTasks));
+      doneUIItem(txt);
+
+      alltask_div1 = alltask_div1 - 1;
+      document.getElementById("alltask_div").innerHTML = alltask_div1;
+
+   });
+
+
 }
 
-xhttp.open('GET', 'https://equeim.ru/', true)
-xhttp.send();
-function myfunc(data) {
-    console.log(data);
-}*/
+function doneUIItem(txt) {
+   let li = document.createElement("li");
+   li.innerHTML = txt;
+   li.classList.add("list-group-item", "done");
+   list.insertBefore(li, list.childNodes[0]);
 
-//Долгий
-/*fetch('http://127.0.0.1:5500/index.html')
-.then(data =>{
-    console.log(data)
-    data.text().then(data2 => {
-        console.log(data2)
-    })
-})*/
+   doneTask_div1 = doneTask_div1 + 1;
+   document.getElementById("doneTask_div").innerHTML = doneTask_div1;
 
-//Средний
-/*fetch('http://127.0.0.1:5500/index.html')
-.then(data =>{
-    console.log(data)
-    return data.text()
-})
-.then(data =>{
-    console.log(data)
-})*/
+   let delBtn = document.createElement("button");
+   delBtn.textContent = "x";
+   delBtn.classList.add("btn", "btn-danger", "delete");
+   li.appendChild(delBtn);
+   delBtn.addEventListener("click", (e) => {
+      li.parentNode.removeChild(li);
+      doneTasks = doneTasks.filter((e) => e !== txt);
+      localStorage.setItem("done", JSON.stringify(doneTasks));
 
-//Самый вариант
-/*fetch('http://127.0.0.1:5500/index.html')
-.then(data => data.text())
-.then(data => console.log(data))*/
-
-
-let a = new Promise((resolve, reject) => {
-    fetch('http://127.0.0.1:5500/index.html')
-    .then(data =>{
-        resolve(data.text())
-    })
-})
-
-let b = new Promise((resolve, reject) => {
-    fetch('http://127.0.0.1:5500/index.html')
-    .then(data =>{
-        resolve(data) 
-    })
-})
-
-/*a.then(data => {
-    console.log(data)
-})*/
-
-Promise.all([a,b]).then(data => {
-    console.log(data)
-})
-
-
-
+      doneTask_div1 = doneTask_div1 - 1;
+      document.getElementById("doneTask_div").innerHTML = doneTask_div1;
+   });
+}
